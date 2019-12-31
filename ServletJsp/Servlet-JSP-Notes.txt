@@ -1,0 +1,86 @@
+-> Servlet
+- program running on a server
+- response is in HTML content ONLY!
+- used to create dynamic web pages
+- any web server can be used to execute the servlet
+- Apache tomacat - to execute web servers
+- technically all servlets are Java files(.java)
+- any class implementing Servlet interface direclty or indirectly 
+	becomes a servlet
+- javax.servlet - package that contains servlets
+- GenericServlet (inbuilt class) -----implements---> servlet(package)
+  (present in javax.servlet)
+- HTTPServlet-----implements------> GenericServlet
+  (javax.servlet.http)
+- MyServlet ---implement/extend any----> HTTPServlet
+
+
+			Servlet
+			 /|\
+			  |
+			  |
+			  |
+ServletResponse<------GenericServlet----------->ServletRequest
+       /|\		 /|\			       /|\
+	|		  |				|
+	|		  |				|
+	|		  |				|
+HttpServletResponse<----HttpServlet------------>HttpServletRequest
+			 /|\
+			  |
+			  |
+			MyServlet
+
+- Servlet methods life cycle methods
+	(also called as container callback methods)
+		  - init() - once - at the time of initialisation of servlet
+		  - service() - called to serve every user request (Ex. refresh page)
+		  - destroy() - once - before destruction of servlet - resources are released
+		-----------------------
+Other methods	  - getServletConfig()
+		  - getServletInfo()
+
+- GenericServlet - abstract class - service() is abstract in this class
+- HttpServlet - non abstract class
+
+
+--------------------------
+-> change port - double click on server name and change the port
+- src folder - holds all java files and servlets
+- class files related to java will be stored in class folder
+
+- content root - project name
+- web content directory - HTML + CSS + JS + JSP
+
+--------------------------------------------------------
+-> 2 ways to configure servlet
+	- annotations - @WebServlet
+	- XML	- web.xml - configuration file for web application
+	- <welcome-file-list> - customise homepage of web page
+
+----------------------------------
+-> calling sequence of servlet(first time)
+	1) container will create object of servlet
+	2) Constructor (default)
+	3) Init method (once)
+	4) Service method (for every request)
+
+- after change is made, the container destroys the previous object
+	and on a request, a new object is recreated
+
+<servlet>, <servlet-mapping> -  tags are mandatory for every servlet
+1)  <servlet> - mandatory tags
+	<servlet-name> </servlet-name>
+	<servlet-class>com.lti.servlet.GreetingServlet </servlet-class> // fully qualified class(including package)
+2)<servlet-mapping> - mandatory tags
+
+----------------------------------------------------------
+PrintWriter out = response.getWriter(); - to get response
+response.setContentType("text/html"); -  the type of content being sent to browser
+- setContentType() - used to set MIME(Multipurpose internet Mail Extension) type
+
+- web container - manages life cycle of web components(Ex. servlet)
+		- manage multi threading of servlets
+
+- response.sendRedirect() - an entirely new request is sent to target page (GET is called in new request)
+- RequestDispatcher - will forward the request to target page and will maintain method(GET/POST)

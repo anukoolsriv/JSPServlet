@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Login Form</title>
+<style>
+#container {
+	background-color: orange;
+	width: 400px;
+	height: 150px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.font {
+	font-family: 'Trebuchet MS';
+	font-size: 15px;
+	font-weight: bold;
+	color: teal;
+}
+
+.error {
+	color: red;
+	font-family: 'Trebuchet MS';
+}
+
+[type] {
+	border: red 1px solid;
+}
+
+[type="submit"] {
+	background-color: skyblue;
+	font-size: 20px;
+	padding: 7px 15px;
+	border-radius: 10px 5px;
+}
+
+.big {
+	font-size: 25px;
+}
+</style>
+</head>
+
+<body>
+	<div id="container">
+		<form id="frm" action="login.do" method="POST">
+			<table>
+				<col width="150px">
+				<col width="90px">
+				<col width="250px">
+				<tr>
+					<th colspan="2" class="font big">Login Form</th>
+				</tr>
+				<tr>
+					<td><label class="font">Enter Username</label></td>
+					<td><input type="text" id="username" name="username"></td>
+				</tr>
+				<tr>
+					<td><label class="font">Enter Password</label></td>
+					<td><input type="password" id="password" name="password"></td>
+				</tr>
+				<tr>
+					<td colspan='2' align="center"><input type="submit"
+						value="login"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+
+</html>
