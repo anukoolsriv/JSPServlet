@@ -84,3 +84,50 @@ response.setContentType("text/html"); -  the type of content being sent to brows
 
 - response.sendRedirect() - an entirely new request is sent to target page (GET is called in new request)
 - RequestDispatcher - will forward the request to target page and will maintain method(GET/POST)
+
+
+----------------------------------------------------
+-> Study
+1) Session Management
+2) different between servlet context and servlet config
+3) Implicit object of JSP
+4) JSP Life cycle
+5) JSP Scripting element
+
+----------------------------------------------------
+-> JSP
+- jsp is internally converted into servlets in the background
+- implicit objects are available
+- <%! int num = 10; %> - Declaration tag - class variables/methods
+- <% ... %> - method code
+- <%= ... %> - expression tag - inside out.print()
+
+JSP implicit objects:
+1) out
+2) request
+3) response
+4) config
+5) application
+6) session
+7) pageContext
+8) page
+9) exception
+
+---------------------------------------
+-> Directives
+-> <%@page... %>- (important) - import, contentType, extends, info, buffer, language, isELIgnored='false by default',
+		  isThreadSafe, isErrorPage="true" etc
+		- contentType="application/msword"
+		<%@page buffer='16kb' %>
+		- create a common error page for similar errors
+		- <%@ page errorPage="error.jsp" %>
+		  <%= 10/0 %> ............. on Error Page <%@ page isErrorPage="true" %>
+								<%=exception %>
+- <%@ include %> -  include content of another page in the given jsp - changes not reflected
+
+- JSP separates business logic and presentation logic (view layer)
+
+
+Q. Difference between <%@page include %> and <%@include %>
+<jsp:include page="" /> - 
+- JSTL for loop
